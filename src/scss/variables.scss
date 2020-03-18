@@ -1,0 +1,40 @@
+/** COLOR */
+$color-primary: yellow;
+// $color-primary-light: #0000a7;
+// $color-primary-dark: #000059;
+
+$color-secondary: #fdfff0;
+
+$color-tertiary: #800000;
+
+// $color-quaternary: ;
+
+$color-grey-light: #eee;
+$color-grey-light-2: #f7f7f7;
+$color-grey-light-3: #ccc;
+
+$color-grey-dark: #979797; //button:disabled
+$color-grey-dark-2: #777;
+$color-grey-dark-3: #333;
+
+$color-transparent: transparent;
+$color-white: #fff;
+$color-white-transparent: rgba(255, 255, 255, 0.7);
+$color-black: #000;
+
+// $color-success: ;
+$color-danger: #830000;
+$color-danger-light: #f34343;
+
+/** FONT */
+$font-size-default: 1.6rem;
+$font-size-small: 1.2rem;
+
+$font-weight-default: 400;
+$font-weight-active: 600;
+
+/** LAYOUT */
+$layout-margin-left: 20%; // avoiding header
+
+/** BORDER */
+$border-color-primary: 1px solid #000080;
