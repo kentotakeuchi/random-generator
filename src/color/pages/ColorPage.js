@@ -1,20 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+
 import './ColorPage.scss';
+import { ColorsContext } from '../../shared/context/colors-context';
 
-const ColorPage = props => {
-  const colors = ['red', 'yellow', 'green', 'blue', 'white', 'pink', 'purple'];
-  const index = Math.floor(Math.random() * Math.floor(colors.length));
-  console.log(index);
-
-  const [colorIndex, setColorIndex] = useState(index);
+const ColorPage = () => {
+  const colors_context = useContext(ColorsContext);
+  const { colors } = colors_context;
+  console.log({ colors });
 
   useEffect(() => {
-    setInterval(() => {
-      setColorIndex(Math.floor(Math.random() * Math.floor(7)));
-    }, 2000);
-  }, []);
+    const obj = {};
+    for (let key in colors) {
+      if (colors[key]) obj[key] = key;
+    }
+    console.log({ obj });
+    const selectedColors = Object.keys(obj);
+    const size = selectedColors.length;
+    console.log({ selectedColors, size });
 
-  return <div className={`color__container ${colors[colorIndex]}`}></div>;
+    const interval = setInterval(() => {
+      const rnd = Math.floor(Math.random() * size);
+      setRandomColor(selectedColors[rnd]);
+      return () => clearInterval(interval);
+    }, 1500);
+  }, [colors]);
+
+  // const index = Math.floor(Math.random() * size);
+  // console.log(index);
+
+  const [randomColor, setRandomColor] = useState(null);
+
+  return <div className={`color__container ${randomColor}`}></div>;
 };
 
 export default ColorPage;

@@ -18,4 +18,34 @@
     text-transform: uppercase;
     text-align: center;
   }
+
+  &__nav-item--settings {
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+    font-size: 0;
+  }
+
+  &__nav-item--settings svg {
+    fill: yellow;
+  }
+
+  &__nav-item--red {
+    color: red;
+  }
+  &__nav-item--purple {
+    color: purple;
+  }
+  &__nav-item--blue {
+    color: blue;
+  }
+  &__nav-item--pink {
+    color: pink;
+  }
+  &__nav-item--green {
+    color: green;
+  }
+  &__nav-item--yellow {
+    color: yellow;
+  }
 }
