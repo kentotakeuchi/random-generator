@@ -30,6 +30,12 @@
   & .purple {
     background-color: purple;
   }
+  & .black {
+    background-color: black;
+    border: 1px solid yellow;
+    width: 2.8rem;
+    height: 2.9rem;
+  }
 
   // INPUT
   & input[type='checkbox'] {

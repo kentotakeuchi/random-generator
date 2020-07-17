@@ -73,6 +73,14 @@ const SettingSection = ({ sectionName }) => {
           onChange={changeColors}
           labelStyle="purple"
         />
+        <Input
+          element="checkbox"
+          id="isBlack"
+          name="color"
+          checked={colors.isBlack}
+          onChange={changeColors}
+          labelStyle="black"
+        />
       </React.Fragment>
     );
   } else if (sectionName === 'digit') {

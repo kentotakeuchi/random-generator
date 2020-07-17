@@ -9,6 +9,7 @@ export const ColorsContext = createContext({
     isWhite: true,
     isPink: true,
     isPurple: true,
+    isBlack: true,
   },
   changeColors: () => {},
 });

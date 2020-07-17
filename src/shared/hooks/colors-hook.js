@@ -9,6 +9,7 @@ export const useColors = () => {
     isWhite: true,
     isPink: true,
     isPurple: true,
+    isBlack: true,
   });
 
   const changeColorsHandler = (id, e) => {
