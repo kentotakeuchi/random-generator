@@ -18,11 +18,18 @@ const ColorPage = () => {
     const size = selectedColors.length;
     console.log({ selectedColors, size });
 
+    // const interval = setInterval(() => {
+    //   const rnd = Math.floor(Math.random() * size);
+    //   setRandomColor(selectedColors[rnd]);
+    //   return () => clearInterval(interval);
+    // }, 1500);
+
     const interval = setInterval(() => {
       const rnd = Math.floor(Math.random() * size);
       setRandomColor(selectedColors[rnd]);
-      return () => clearInterval(interval);
     }, 1500);
+
+    return () => clearInterval(interval);
   }, [colors]);
 
   // const index = Math.floor(Math.random() * size);
