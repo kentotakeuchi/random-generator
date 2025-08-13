@@ -3,21 +3,23 @@ import React, { useState, useEffect, useContext } from 'react';
 import './DigitPage.scss';
 import { DigitContext } from '../../shared/context/digit-context';
 
-const DigitPage = (props) => {
-  const digit_context = useContext(DigitContext);
-  const { digit } = digit_context;
+const DigitPage = () => {
+  const { digits } = useContext(DigitContext);
 
-  const index = Math.floor(Math.random() * digit);
-
-  const [randomDigit, setRandomDigit] = useState(index);
+  const [randomDigit, setRandomDigit] = useState(
+    digits.length > 0 ? digits[Math.floor(Math.random() * digits.length)] : null
+  );
 
   useEffect(() => {
+    if (digits.length === 0) return;
+
     const interval = setInterval(() => {
-      setRandomDigit(Math.floor(Math.random() * digit));
+      const rndIndex = Math.floor(Math.random() * digits.length);
+      setRandomDigit(digits[rndIndex]);
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [digit]);
+  }, [digits]);
 
   return (
     <div className="digit__container">

@@ -41,8 +41,21 @@
   }
 
   &__content-box.digit {
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    row-gap: 3rem;
+
     @include respond(phone) {
       padding: 10rem;
+    }
+  }
+
+  &__content-box.digit > .form-control {
+    width: min-content;
+    column-gap: 12px;
+
+    > .label__box {
+      text-align: right;
     }
   }
 }

@@ -6,12 +6,8 @@ import { ColorsContext } from '../../shared/context/colors-context';
 import { DigitContext } from '../../shared/context/digit-context';
 
 const SettingSection = ({ sectionName }) => {
-  const colors_context = useContext(ColorsContext);
-  const { colors, changeColors } = colors_context;
-  console.log(colors);
-
-  const digit_context = useContext(DigitContext);
-  const { digit, changeDigit } = digit_context;
+  const { colors, changeColors } = useContext(ColorsContext);
+  const { digits, changeDigits } = useContext(DigitContext);
 
   let sectionElements;
   if (sectionName === 'color') {
@@ -85,26 +81,23 @@ const SettingSection = ({ sectionName }) => {
     );
   } else if (sectionName === 'digit') {
     sectionElements = (
-      <Input
-        element="select"
-        id="digit"
-        label=""
-        value={digit}
-        onChange={changeDigit}
-        instruction="select max digit"
-        options={[
-          { value: 2 },
-          { value: 3 },
-          { value: 4 },
-          { value: 5 },
-          { value: 6 },
-          { value: 7 },
-          { value: 8 },
-          { value: 9 },
-          { value: 10 },
-          { value: 11 },
-        ]}
-      />
+      <>
+        {Array.from({ length: 12 }, (_, i) => (
+          <Input
+            key={i}
+            element="checkbox"
+            id={`digit-${i}`}
+            name="digit"
+            checked={digits.includes(i)}
+            onChange={(id, inputElem) => {
+              changeDigits(id.replace('digit-', ''), inputElem.target.checked);
+            }}
+            labelStyle="digit"
+            label={i.toString()}
+            value={i}
+          />
+        ))}
+      </>
     );
   }
 

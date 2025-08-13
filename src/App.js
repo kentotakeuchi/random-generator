@@ -18,7 +18,7 @@ const SettingsPage = React.lazy(() => import('./settings/pages/SettingsPage'));
 
 const App = () => {
   const { colors, changeColorsHandler } = useColors();
-  const { digit, changeDigitHandler } = useDigit();
+  const { digits, changeDigits } = useDigit();
 
   const routes = (
     <Switch>
@@ -39,8 +39,8 @@ const App = () => {
     >
       <DigitContext.Provider
         value={{
-          digit: digit,
-          changeDigit: changeDigitHandler,
+          digits: digits,
+          changeDigits: changeDigits,
         }}
       >
         <Suspense fallback={<LoadingSpinner asOverlay />}>{routes}</Suspense>

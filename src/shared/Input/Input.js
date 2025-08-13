@@ -30,7 +30,7 @@ const Input = ({
   checked,
   labelStyle,
 }) => {
-  console.log({ element, id, checked, value });
+  // console.log({ element, id, checked, value });
 
   // const [inputState, dispatch] = useReducer(inputReducer, {
   //   value: initialValue || '',
