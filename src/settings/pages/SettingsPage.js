@@ -9,6 +9,7 @@ const SettingsPage = () => {
       <div className="settings-page__section-box">
         <SettingSection sectionName="color" />
         <SettingSection sectionName="digit" />
+        <SettingSection sectionName="interval" />
       </div>
     </div>
   );

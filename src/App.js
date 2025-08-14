@@ -7,8 +7,10 @@ import LoadingSpinner from './shared/LoadingSpinner/LoadingSpinner';
 // CUSTOM CONTEXT & HOOK
 import { ColorsContext } from './shared/context/colors-context';
 import { DigitContext } from './shared/context/digit-context';
+import { IntervalContext } from './shared/context/interval-context';
 import { useColors } from './shared/hooks/colors-hook';
 import { useDigit } from './shared/hooks/digit-hook';
+import { useIntervalTime } from './shared/hooks/interval-hook';
 
 // PAGE COMPONENT
 const HomePage = React.lazy(() => import('./home/pages/HomePage'));
@@ -19,6 +21,7 @@ const SettingsPage = React.lazy(() => import('./settings/pages/SettingsPage'));
 const App = () => {
   const { colors, changeColorsHandler } = useColors();
   const { digits, changeDigits } = useDigit();
+  const { intervalTime, changeIntervalTime } = useIntervalTime();
 
   const routes = (
     <Switch>
@@ -43,7 +46,9 @@ const App = () => {
           changeDigits: changeDigits,
         }}
       >
-        <Suspense fallback={<LoadingSpinner asOverlay />}>{routes}</Suspense>
+        <IntervalContext.Provider value={{ intervalTime, changeIntervalTime }}>
+          <Suspense fallback={<LoadingSpinner asOverlay />}>{routes}</Suspense>
+        </IntervalContext.Provider>
       </DigitContext.Provider>
     </ColorsContext.Provider>
   );

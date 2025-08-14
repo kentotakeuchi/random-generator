@@ -4,6 +4,7 @@ import './SettingSection.scss';
 import Input from '../../shared/Input/Input';
 import { ColorsContext } from '../../shared/context/colors-context';
 import { DigitContext } from '../../shared/context/digit-context';
+import { IntervalContext } from '../../shared/context/interval-context';
 
 const COLOR_CONFIG = [
   { id: 'isRed', labelStyle: 'red' },
@@ -20,6 +21,7 @@ const COLOR_CONFIG = [
 const SettingSection = ({ sectionName }) => {
   const { colors, changeColors } = useContext(ColorsContext);
   const { digits, changeDigits } = useContext(DigitContext);
+  const { intervalTime, changeIntervalTime } = useContext(IntervalContext);
 
   let sectionElements;
 
@@ -54,6 +56,18 @@ const SettingSection = ({ sectionName }) => {
           />
         ))}
       </>
+    );
+  } else if (sectionName === 'interval') {
+    sectionElements = (
+      <Input
+        element="input"
+        type="number"
+        id="interval-time"
+        name="interval"
+        value={intervalTime}
+        onChange={changeIntervalTime}
+        label="Interval (ms)"
+      />
     );
   }
 
