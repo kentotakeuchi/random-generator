@@ -7,7 +7,7 @@ export const useDigit = () => {
   // toggle a digit on/off
   const changeDigits = (value, checked) => {
     const num = Number(value);
-    console.log({ value, checked, num });
+    // console.log({ value, checked, num });
 
     if (checked) {
       setDigits((prev) => [...prev, num]);
