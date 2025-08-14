@@ -25,7 +25,7 @@ const SettingSection = ({ sectionName }) => {
 
   let sectionElements;
 
-  if (sectionName === 'color') {
+  if (sectionName === 'COLOR') {
     sectionElements = COLOR_CONFIG.map(({ id, labelStyle }) => (
       <Input
         key={id}
@@ -37,7 +37,7 @@ const SettingSection = ({ sectionName }) => {
         labelStyle={labelStyle}
       />
     ));
-  } else if (sectionName === 'digit') {
+  } else if (sectionName === 'DIGIT') {
     sectionElements = (
       <>
         {Array.from({ length: 12 }, (_, i) => (
@@ -57,7 +57,7 @@ const SettingSection = ({ sectionName }) => {
         ))}
       </>
     );
-  } else if (sectionName === 'interval') {
+  } else if (sectionName === 'INTERVAL(ms)') {
     sectionElements = (
       <Input
         element="input"
@@ -66,7 +66,6 @@ const SettingSection = ({ sectionName }) => {
         name="interval"
         value={intervalTime}
         onChange={changeIntervalTime}
-        label="Interval (ms)"
       />
     );
   }

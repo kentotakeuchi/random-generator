@@ -30,25 +30,6 @@ const Input = ({
   checked,
   labelStyle,
 }) => {
-  // console.log({ element, id, checked, value });
-
-  // const [inputState, dispatch] = useReducer(inputReducer, {
-  //   value: initialValue || '',
-  // });
-
-  // const { value } = inputState;
-
-  // useEffect(() => {
-  //   onInput(id, value);
-  // }, [id, value, onInput]);
-
-  // const onChange = (event) => {
-  //   dispatch({
-  //     type: 'CHANGE',
-  //     val: event.target.value,
-  //   });
-  // };
-
   let inputElement;
   switch (element) {
     case 'input':
